@@ -8,6 +8,7 @@ import {
 import { AiOutlineDownload } from "react-icons/ai";
 import mixpanel from "mixpanel-browser";
 import { useEffect } from "react";
+import { Link } from "react-scroll";
 
 export const Header = ({ cvLink }: { cvLink: string }) => {
   useEffect(() => {
@@ -24,6 +25,65 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
           Node.js
         </p>
       </div>
+      <nav className="nav hidden lg:block mb-8">
+        <ul className="mt-16 w-max">
+          <li>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="group flex items-center py-3 cursor-pointer"
+              onClick={() => mixpanel.track("NAV_CLICK", { section: "about" })}
+            >
+              <span className="nav-indicator mr-4 h-px transition-all bg-slate-600 w-8 group-hover:bg-slate-200 group-hover:w-16 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
+              <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                About
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              activeClass="active"
+              to="experience"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="group flex items-center py-3 cursor-pointer"
+              onClick={() =>
+                mixpanel.track("NAV_CLICK", { section: "experience" })
+              }
+            >
+              <span className="nav-indicator mr-4 h-px transition-all bg-slate-600 w-8 group-hover:bg-slate-200 group-hover:w-16 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
+              <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                Experience
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="group flex items-center py-3 cursor-pointer"
+              onClick={() =>
+                mixpanel.track("NAV_CLICK", { section: "projects" })
+              }
+            >
+              <span className="nav-indicator mr-4 h-px transition-all bg-slate-600 w-8 group-hover:bg-slate-200 group-hover:w-16 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none" />
+              <span className="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">
+                Projects
+              </span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <button
         className="flex w-fit items-center gap-2 py-2 px-4 bg-blue-800 rounded-md hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 transition duration-200"
         onClick={() => {

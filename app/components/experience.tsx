@@ -6,6 +6,7 @@ import { useState } from "react";
 import { RiCheckFill } from "react-icons/ri";
 import { useHover } from "@uidotdev/usehooks";
 import mixpanel from "mixpanel-browser";
+import { Element } from "react-scroll";
 
 interface IExperience {
   id: string;
@@ -62,7 +63,7 @@ export const Experience = ({ data }: ExperienceProps) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div>
+    <Element name="experience">
       <ul className="">
         {data.slice(0, showMore ? 5 : 1).map((item) => (
           <Link key={item.id} href={item?.link ?? ""}>
@@ -98,7 +99,7 @@ export const Experience = ({ data }: ExperienceProps) => {
       </p>
       <SkillBoard title="Languages and Tools:" skills={skills} />
       <SkillBoard title="Currently learning:" skills={learningSkills} />
-    </div>
+    </Element>
   );
 };
 

@@ -3,6 +3,7 @@
 import mixpanel from "mixpanel-browser";
 import Link from "next/link";
 import { useState } from "react";
+import { Element } from "react-scroll";
 
 interface IProject {
   id: string;
@@ -23,7 +24,7 @@ export const Project = ({ data }: ProjectProps) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <>
+    <Element name="projects">
       <ul className="">
         {data.slice(0, showMore ? 10 : 3).map((item) => (
           <Link key={item.id} href={item.link}>
@@ -44,7 +45,7 @@ export const Project = ({ data }: ProjectProps) => {
       >
         {showMore ? "Show less" : "Show more"}
       </p>
-    </>
+    </Element>
   );
 };
 
@@ -54,7 +55,7 @@ const SkillTags = ({ skills }: { skills: string[] }) => {
       {skills.map((skill) => (
         <li
           key={skill}
-          className="px-2 py-1 bg-teal-400/10 rounded-full text-teal-300 text-sm"
+          className="px-2 py-1 bg-teal-400/10 rounded-full text-teal-300 text-sm font-light"
         >
           {skill}
         </li>
