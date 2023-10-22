@@ -8,7 +8,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 
 export const Header = ({ cvLink }: { cvLink: string }) => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full px-4 mb-8">
       <div className="space-y-4 mb-8">
         <h1 className="text-5xl font-bold">Jordan Jones</h1>
         <h2 className="text-xl">Front-End Engineer</h2>
@@ -25,7 +25,7 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
       </Link>
 
       <div className="flex-1" />
-      <div className="flex gap-3">
+      <div className="flex gap-3 mt-8">
         <Link href="https://www.linkedin.com/in/jordan-j-0a8848229">
           <RiLinkedinBoxFill
             size={28}
