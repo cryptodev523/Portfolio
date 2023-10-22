@@ -1,5 +1,6 @@
 "use client";
 
+import mixpanel from "mixpanel-browser";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -36,7 +37,10 @@ export const Project = ({ data }: ProjectProps) => {
       </ul>
       <p
         className="px-4 cursor-pointer underline decoration-transparent underline-offset-4 hover:decoration-sky-500"
-        onClick={() => setShowMore(!showMore)}
+        onClick={() => {
+          setShowMore(!showMore);
+          mixpanel.track("SHOW_MORE_PROJECTS");
+        }}
       >
         {showMore ? "Show less" : "Show more"}
       </p>

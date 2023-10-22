@@ -5,6 +5,7 @@ import { formatDate } from "../utils/format";
 import { useState } from "react";
 import { RiCheckFill } from "react-icons/ri";
 import { useHover } from "@uidotdev/usehooks";
+import mixpanel from "mixpanel-browser";
 
 interface IExperience {
   id: string;
@@ -88,7 +89,10 @@ export const Experience = ({ data }: ExperienceProps) => {
       </ul>
       <p
         className="px-4 cursor-pointer underline decoration-transparent underline-offset-4 hover:decoration-sky-500"
-        onClick={() => setShowMore(!showMore)}
+        onClick={() => {
+          setShowMore(!showMore);
+          mixpanel.track("SHOW_MORE_EXPERIENCE");
+        }}
       >
         {showMore ? "Show less" : "Show more"}
       </p>
