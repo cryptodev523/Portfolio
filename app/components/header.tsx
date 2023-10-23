@@ -9,6 +9,8 @@ import { AiOutlineDownload } from "react-icons/ai";
 import mixpanel from "mixpanel-browser";
 import { useEffect } from "react";
 import { Link } from "react-scroll";
+import { ndotFont } from "../fonts";
+const { Zoom, Fade } = require("react-reveal");
 
 export const Header = ({ cvLink }: { cvLink: string }) => {
   useEffect(() => {
@@ -18,8 +20,16 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
   return (
     <div className="flex flex-col h-full px-4 mb-8">
       <div className="space-y-4 mb-8">
-        <h1 className="text-5xl font-bold">Jordan Jones</h1>
-        <h2 className="text-xl">Software Engineer</h2>
+        <Zoom top cascade>
+          <h1
+            className={`text-5xl font-bold text-slate-300 ${ndotFont.className}`}
+          >
+            Jordan Jones
+          </h1>
+        </Zoom>
+        <Fade cascade right>
+          <h2 className="text-xl text-amber-600">Software Engineer</h2>
+        </Fade>
         <p className="text-slate-500">
           I build web & mobile apps with React.js, Next.js, React Native and
           Node.js
