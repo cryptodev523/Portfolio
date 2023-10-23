@@ -19,7 +19,7 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
     <div className="flex flex-col h-full px-4 mb-8">
       <div className="space-y-4 mb-8">
         <h1 className="text-5xl font-bold">Jordan Jones</h1>
-        <h2 className="text-xl">Front-End Engineer</h2>
+        <h2 className="text-xl">Software Engineer</h2>
         <p className="text-slate-500">
           I build web & mobile apps with React.js, Next.js, React Native and
           Node.js
@@ -91,7 +91,7 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
           push(cvLink);
         }}
       >
-        Download CV
+        Download Resume
         <AiOutlineDownload size={24} />
       </button>
 

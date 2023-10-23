@@ -6,7 +6,7 @@ import { Contact } from "./components/contact";
 import { Project } from "./components/project";
 import { CursorEffect } from "./components/cursor";
 
-export const revalidate = 60 * 60 * 24;
+export const revalidate = 60 * 60;
 
 export default async function Home() {
   const [careerHistory, projects, cvInfo] = await Promise.all([

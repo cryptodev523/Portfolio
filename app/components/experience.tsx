@@ -65,7 +65,7 @@ export const Experience = ({ data }: ExperienceProps) => {
   return (
     <Element name="experience">
       <ul className="">
-        {data.slice(0, showMore ? 5 : 1).map((item) => (
+        {data.slice(0, showMore ? 5 : 3).map((item) => (
           <Link key={item.id} href={item?.link ?? ""}>
             <li className="my-4 px-4 py-6 rounded-md border border-transparent hover:border-slate-800/50 hover:bg-slate-500/5 hover:drop-shadow-md transition duration-300">
               <div className="flex justify-between">
@@ -79,11 +79,13 @@ export const Experience = ({ data }: ExperienceProps) => {
               <div className="font-bold text-cyan-500 mb-2">
                 {item.location}
               </div>
-              {item.info.description.map((desc) => (
-                <p className="font-light text-slate-400" key={desc}>
-                  {desc}
-                </p>
-              ))}
+              <ul className="list-disc list-inside">
+                {item.info.description.map((desc) => (
+                  <li key={desc} className="font-light text-slate-400">
+                    {desc}
+                  </li>
+                ))}
+              </ul>
             </li>
           </Link>
         ))}
