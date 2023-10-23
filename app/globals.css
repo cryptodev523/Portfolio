@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.active > .nav-indicator {
+  width: 64px;
+  background-color: rgb(226,232,240);
+}
+
+.active > .nav-text {
+  color: rgb(226,232,240);
+}
