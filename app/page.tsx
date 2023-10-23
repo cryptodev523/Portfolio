@@ -4,6 +4,7 @@ import { Experience } from "./components/experience";
 import { getCVInfo, getCareerHistory, getProjects } from "./utils/data";
 import { Contact } from "./components/contact";
 import { Project } from "./components/project";
+import { CursorEffect } from "./components/cursor";
 
 export const revalidate = 60 * 60 * 24;
 
@@ -15,7 +16,8 @@ export default async function Home() {
   ]);
 
   return (
-    <div className="bg-[#2d2f5a]/50">
+    <div className="bg-[#2d2f5a]/50 relative">
+      <CursorEffect />
       <main className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:py-20 lg:py-0 ">
         <div className="lg:flex">
           <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:py-24">
