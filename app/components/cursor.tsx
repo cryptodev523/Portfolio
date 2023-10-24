@@ -21,7 +21,7 @@ export const CursorEffect = () => {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute bg-white"
+      className="pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute bg-transparent"
     ></div>
   );
 };
