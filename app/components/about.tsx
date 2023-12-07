@@ -1,12 +1,12 @@
 "use client";
 import { Element } from "react-scroll";
 import mixpanel from "mixpanel-browser";
+import { email } from "../utils/config";
 
 export const About = () => {
-  const emailAddress = "jordandev92@gmail.com";
   const handleEmailClick = () => {
     mixpanel.track("EMAIL_CLICK");
-    window.location.href = `mailto:${emailAddress}`;
+    window.location.href = `mailto:${email}`;
   };
 
   return (
@@ -26,7 +26,7 @@ export const About = () => {
             className="cursor-pointer text-slate-200 hover:text-sky-500 transition duration-300"
             onClick={handleEmailClick}
           >
-            {emailAddress}
+            {email}
           </span>
           .
         </p>
