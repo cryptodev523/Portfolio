@@ -107,14 +107,14 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
 
       <div className="flex-1" />
       <div className="flex gap-3 mt-8">
-        {/* <RiLinkedinBoxFill
+        <RiLinkedinBoxFill
           size={28}
           className="text-slate-500 hover:text-[#f7f7f7] transition duration-500 cursor-pointer"
           onClick={() => {
             mixpanel.track("LINKEDIN_CLICK");
-            push("https://www.linkedin.com/in/jordan-j-0a8848229");
+            push("https://www.linkedin.com/in/jordan-jones-2915881b1/");
           }}
-        /> */}
+        />
         <RiTwitterXFill
           size={28}
           className="text-slate-500 hover:text-[#f7f7f7] transition duration-500 cursor-pointer"
