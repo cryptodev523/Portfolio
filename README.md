@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio
+
+This is a personal portfolio website built with [Next.js](https://nextjs.org/), showcasing my work as a Software Engineer.
+
+## Project Overview
+
+This portfolio is a modern, responsive web application that highlights my skills, experience, and projects. It uses Next.js for server-side rendering and optimal performance, along with several other technologies to create an engaging user experience.
+
+## Key Features
+
+- Responsive design
+- Server-side rendering with Next.js
+- Dynamic content loading from Supabase
+- Smooth scrolling and animations
+- Analytics integration with Vercel and Mixpanel
+- Custom cursor effect
+- Downloadable resume
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Vercel Analytics
+- Mixpanel
+- React Icons
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the following variables:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   NEXT_PUBLIC_MIXPANEL_TOKEN=your_mixpanel_token
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `app/`: Contains the main application code
+  - `components/`: React components used throughout the app
+  - `utils/`: Utility functions and Supabase client
+  - `page.tsx`: Main page component
+  - `layout.tsx`: Root layout component
+- `public/`: Static assets
+- `styles/`: Global styles
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
+
+This project is set up for easy deployment on Vercel. Simply connect your GitHub repository to Vercel, and it will automatically deploy your main branch.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this project, check out the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Supabase Documentation](https://supabase.io/docs)
+- [Vercel Documentation](https://vercel.com/docs)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
