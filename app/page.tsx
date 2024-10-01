@@ -21,13 +21,19 @@ export default async function Home() {
       <main className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:py-20 lg:py-0 ">
         <div className="lg:flex">
           <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:py-24">
-            <Header cvLink={cvInfo[0].info.cv_link} />
+            <Header
+              cvLink={cvInfo[0].info.cv_link}
+              socialInfo={cvInfo[0].info.social_info}
+            />
           </div>
           <div className="space-y-16 lg:w-1/2 lg:py-24">
-            <About />
+            <About
+              email={cvInfo[0].info.contact.email}
+              bio={cvInfo[0].info.bio}
+            />
             <Experience data={careerHistory} />
             <Project data={projects} />
-            <Contact />
+            <Contact data={cvInfo[0].info.contact} />
           </div>
         </div>
       </main>

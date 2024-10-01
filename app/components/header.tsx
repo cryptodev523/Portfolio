@@ -4,15 +4,38 @@ import {
   RiGithubFill,
   RiLinkedinBoxFill,
   RiTwitterXFill,
+  RiStackOverflowFill,
+  RiDiscordFill,
+  RiTelegramFill,
 } from "react-icons/ri";
 import { AiOutlineDownload } from "react-icons/ai";
 import mixpanel from "mixpanel-browser";
 import { useEffect } from "react";
 import { Link } from "react-scroll";
+import NextLink from "next/link";
 import { ndotFont } from "../fonts";
 const { Zoom, Fade } = require("react-reveal");
 
-export const Header = ({ cvLink }: { cvLink: string }) => {
+const socialIcons = {
+  linkedin: RiLinkedinBoxFill,
+  twitter: RiTwitterXFill,
+  github: RiGithubFill,
+  stackoverflow: RiStackOverflowFill,
+  discord: RiDiscordFill,
+  telegram: RiTelegramFill,
+};
+
+export const Header = ({
+  cvLink,
+  socialInfo,
+}: {
+  cvLink: string;
+  socialInfo: {
+    type: string;
+    url: string;
+    trackId: string;
+  }[];
+}) => {
   useEffect(() => {
     mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_TOKEN as string);
   }, []);
@@ -94,43 +117,42 @@ export const Header = ({ cvLink }: { cvLink: string }) => {
           </li>
         </ul>
       </nav>
-      <button
+      <NextLink
+        href={cvLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex w-fit items-center gap-2 py-2 px-4 bg-blue-800 rounded-md hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 transition duration-200"
         onClick={() => {
           mixpanel.track("RESUME_DOWNLOAD");
-          push(cvLink);
         }}
       >
         Download Resume
         <AiOutlineDownload size={24} />
-      </button>
+      </NextLink>
 
       <div className="flex-1" />
       <div className="flex gap-3 mt-8">
-        <RiLinkedinBoxFill
-          size={28}
-          className="text-slate-500 hover:text-[#f7f7f7] transition duration-500 cursor-pointer"
-          onClick={() => {
-            mixpanel.track("LINKEDIN_CLICK");
-            push("https://www.linkedin.com/in/jordan-jones-2915881b1/");
-          }}
-        />
-        <RiTwitterXFill
-          size={28}
-          className="text-slate-500 hover:text-[#f7f7f7] transition duration-500 cursor-pointer"
-          onClick={() => {
-            mixpanel.track("TWITTER_CLICK");
-            push("https://twitter.com/jonesbayc");
-          }}
-        />
-        <RiGithubFill
-          size={28}
-          className="text-slate-500 hover:text-[#f7f7f7] transition duration-500 cursor-pointer"
-          onClick={() => {
-            mixpanel.track("GITHUB_CLICK");
-            push("https://github.com/cryptodev523");
-          }}
-        />
+        {socialInfo
+          .filter((social) => !!social.url)
+          .map((social) => {
+            const Icon = socialIcons[social.type as keyof typeof socialIcons];
+            return Icon ? (
+              <NextLink
+                key={social.type}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  mixpanel.track(social.trackId);
+                }}
+              >
+                <Icon
+                  size={28}
+                  className="text-slate-500 hover:text-[#f7f7f7] transition duration-500 cursor-pointer"
+                />
+              </NextLink>
+            ) : null;
+          })}
       </div>
     </div>
   );
